@@ -1,11 +1,11 @@
 import sys
-import time
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromiumService
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
+import time
+from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 url = sys.argv[1]
 driver.get(url)
