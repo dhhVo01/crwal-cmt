@@ -12,4 +12,8 @@ url = sys.argv[1]
 driver.get(url)
 time.sleep(5)
 driver.quit()
-print(url)
+result = {
+    "status": "done",
+    "url":url
+}
+print(result)
