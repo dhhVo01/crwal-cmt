@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-
 url = sys.argv[1]
+print(sys.argv[1])
 driver.get(url)
 time.sleep(5)
 driver.quit()

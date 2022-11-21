@@ -13,7 +13,6 @@ app.post("/api/crawl",function(req, res){
     process.stdout.on("data", function(data){
         console.log(data.toString());
         res.write(data.toString());
-        res.send();
     })
     process.stderr.on('data', (data) => {
         res.write(data.toString());
