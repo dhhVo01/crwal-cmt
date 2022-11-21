@@ -1,10 +1,10 @@
 import sys
+from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
-import chromedriver_autoinstaller
 import time
 from selenium.webdriver.common.by import By
-chromedriver_autoinstaller.install()
-driver = webdriver.Chrome()
+service = Service(executable_path="/usr/bin/google-chrome")
+driver = webdriver.Chrome(service=service)
 url = sys.argv[1]
 driver.get(url)
 time.sleep(5)
