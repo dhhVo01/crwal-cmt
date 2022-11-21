@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post("/api/crawl",function(req, res){
     const url = req.body.url;
-    var process = spawn("py", ["tool.py", url]);
+    var process = spawn("python", ["tool.py", url]);
     process.stdout.on("data", function(data){
         console.log(data.toString());
         res.write(data.toString());
