@@ -12,13 +12,12 @@ app.post("/api/crawl",function(req, res){
     var process = spawn("python", ["tool.py", url]);
     process.stdout.on("data", function(data){
         console.log(data.toString());
-        res.write(data.toString());
     })
     process.stderr.on('data', (data) => {
         res.write(data.toString());
         console.log(data.toString());
         res.send();
-    });
+    }); 
 })
 
 
