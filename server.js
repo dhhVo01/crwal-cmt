@@ -9,16 +9,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post("/api/crawl",function(req, res){
     const url = req.body.url;
-    var process = spawn("python", ["tool.py", url]);
+    var process = spawn("py", ["test.py", url]);
     process.stdout.on("data", function(data){
-        console.log(data);
+        // var result = JSON.parse(data.toString());
+        // console.log(result);
+        // res.write(result.url);
+        res.write(data.toString());
+        console.log(data.toString());
         res.send();
     })
-    // process.stderr.on('data', (data) => {
-    //     res.write(data.toString());
-    //     console.log(data.toString());
-    //     res.send();
-    // }); 
+    process.stderr.on('data', (data) => {
+        res.write(data.toString());
+        console.log(data.toString());
+        res.send();
+    }); 
 })
 
 
